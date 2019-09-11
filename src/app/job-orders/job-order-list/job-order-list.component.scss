@@ -1,0 +1,9 @@
+@import "../../../styles/mixin";
+
+.job-orders {
+  @include item-list;
+}
+
+.mat-card {
+  @include mat-card-layout;
+}

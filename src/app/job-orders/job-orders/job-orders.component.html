@@ -1,0 +1,52 @@
+<div class="control-panel">
+  <div class="button-panel">
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="getJobOrders()"
+      matTooltip="Refresh the jobOrders"
+    >
+      Refresh
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="enableAddMode()"
+      *ngIf="!selected"
+      matTooltip="Add a new job order"
+    >
+      Add
+    </button>
+  </div>
+</div>
+<div class="content-container">
+  <div class="list-container">
+    <div *ngIf="jobOrders$ | async as jobOrders">
+      <mat-spinner
+        *ngIf="loading$ | async; else jobOrderList"
+        mode="indeterminate"
+        color="accent"
+      ></mat-spinner>
+      <ng-template #jobOrderList>
+        <app-job-order-list
+          [jobOrders]="jobOrders"
+          [selectedjobOrder]="selected"
+          (deleted)="delete($event)"
+          (selected)="select($event)"
+        ></app-job-order-list>
+      </ng-template>
+    </div>
+  </div>
+  <div class="detail-container">
+    <app-job-order-detail
+      *ngIf="selected"
+      [jobOrder]="selected"
+      (unselect)="close()"
+      (add)="add($event)"
+      (update)="update($event)"
+    >
+    </app-job-order-detail>
+  </div>
+</div>

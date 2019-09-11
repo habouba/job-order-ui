@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div>
+      <span class="title">{{ labTitle }}</span>
+      <span></span>
+      <a
+        mat-button
+        [routerLink]="['/job-orders']"
+        routerLinkActive="router-link-active"
+      >
+        <span>Job Orders</span>
+      </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
