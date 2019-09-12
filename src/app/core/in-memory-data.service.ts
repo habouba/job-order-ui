@@ -64,7 +64,10 @@ export class InMemoryDataService {
    * @param utils for manipulating parsed URL
    */
   parseRequestUrl(url: string, utils: RequestInfoUtilities): ParsedRequestUrl {
-    const parsed = utils.parseRequestUrl(url);
+    const newUrl = url.replace(/\api\/patate/, "api");
+    const parsed = utils.parseRequestUrl(newUrl);
+
+    //const parsed = utils.parseRequestUrl(Url);
     const isDefaultRoot = parsed.apiBase === "api/";
     parsed.collectionName =
       this.active && isDefaultRoot
