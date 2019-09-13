@@ -95,22 +95,26 @@ function getDbData() {
     {
       id: 11,
       name: "Maxwell Smart",
-      saying: "Missed it by that much."
+      saying: "Missed it by that much.",
+      dateLoaded: new Date()
     },
     {
       id: 12,
       name: "Bullwinkle J. Moose",
-      saying: "Watch me pull a rabbit out of a hat."
+      saying: "Watch me pull a rabbit out of a hat.",
+      dateLoaded: new Date()
     },
     {
       id: 13,
       name: "Muhammad Ali",
-      saying: "Float like a butterfly, sting like a bee."
+      saying: "Float like a butterfly, sting like a bee.",
+      dateLoaded: new Date()
     },
     {
       id: 14,
       name: "Eleanor Roosevelt",
-      saying: "No one can make you feel inferior without your consent."
+      saying: "No one can make you feel inferior without your consent.",
+      dateLoaded: new Date()
     }
   ];
 
