@@ -20,12 +20,17 @@
           <mat-form-field>
             <input
               matInput
+              [ngClass]="{ 'is-invalid': displayMessage.name }"
+              (blur)="blur()"
               formControlName="name"
               placeholder="name"
               #name
               (keyup.esc)="close()"
               (keyup.enter)="saveJobOrder(form)"
             />
+            <span class="invalid-feedback" *ngIf="displayMessage.name">
+              {{ displayMessage.name }}
+            </span>
           </mat-form-field>
         </div>
         <div>
@@ -38,6 +43,9 @@
               (keyup.esc)="close()"
               (keyup.enter)="saveJobOrder(form)"
             ></textarea>
+            <mat-error *ngIf="form.get('saying').invalid">{{
+              getErrorMessage()
+            }}</mat-error>
           </mat-form-field>
         </div>
       </div>
