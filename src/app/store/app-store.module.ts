@@ -8,7 +8,22 @@ import { entityConfig } from "./entity-metadata";
 import { NgrxDataToastService } from "./ngrx-data-toast.service";
 
 const defaultDataServiceConfig: DefaultDataServiceConfig = {
-  root: "api/patate"
+  root: "api/patate/", // default root path to the server's web api
+
+  // Optionally specify resource URLS for HTTP calls
+  entityHttpResourceUrls: {
+    // Case matters. Match the case of the entity name.
+    Joborder2: {
+      // You must specify the root as part of the resource URL.
+      entityResourceUrl: "api/joborder2",
+      collectionResourceUrl: "api/joborders2/"
+    },
+    Joborder: {
+      // You must specify the root as part of the resource URL.
+      entityResourceUrl: "api/joborder/",
+      collectionResourceUrl: "api/joborders"
+    }
+  }
 };
 
 @NgModule({
