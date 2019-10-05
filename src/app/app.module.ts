@@ -6,6 +6,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { AppComponent } from "./app.component";
 import { CoreModule } from "./core";
 import { AppStoreModule } from "./store/app-store.module";
+import { EntityDataModule } from "@ngrx/data";
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "job-orders" },
@@ -22,7 +23,8 @@ const routes: Routes = [
     CoreModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    AppStoreModule
+    AppStoreModule,
+    EntityDataModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]

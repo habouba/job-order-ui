@@ -7,7 +7,7 @@ import {
   Logger,
   QueryParams,
   DefaultDataServiceConfig
-} from "ngrx-data";
+} from "@ngrx/data";
 
 import { JobOrder } from "../../core";
 

@@ -3,16 +3,15 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import {
-  NgrxDataModule,
   EntityDataService,
   DefaultDataServiceConfig,
   EntityCollectionDataService,
   HttpUrlGenerator,
   QueryParams,
   HttpMethods,
-  Update,
-  EntityHttpResourceUrls
-} from "ngrx-data";
+  EntityHttpResourceUrls,
+  EntityDataModule
+} from "@ngrx/data";
 import { environment } from "../../environments/environment";
 import { entityConfig } from "./entity-metadata";
 import { NgrxDataToastService } from "./ngrx-data-toast.service";
@@ -26,7 +25,7 @@ import { tap } from "rxjs/operators";
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     environment.production ? [] : StoreDevtoolsModule.instrument(),
-    NgrxDataModule.forRoot(entityConfig)
+    EntityDataModule.forRoot(entityConfig)
   ],
   providers: [
     JobOrderDataService // <-- provide the custom data service
